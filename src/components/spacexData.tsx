@@ -1,5 +1,5 @@
 import * as React from 'react';
-import * as momemnt from 'moment';
+import * as moment from 'moment';
 
 // Styles
 import 'bootstrap/dist/css/bootstrap.css';
@@ -7,7 +7,6 @@ import '../styles/styles.css';
 
 // Components
 import Capsules from './capsules';
-import moment = require('moment');
 
 // Custom Types
 type Capsule = {
