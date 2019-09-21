@@ -1,5 +1,5 @@
 import * as React from 'react';
-import * as moment from 'moment';
+import moment from 'moment';
 
 // Styles
 import 'bootstrap/dist/css/bootstrap.css';
@@ -14,7 +14,7 @@ type Capsule = {
   capsule_id: string;
   status: string;
   original_launch: string;
-  mission: string;
+  missions: any;
   landings: number;
   type: string;
   reuse_count: number;
@@ -42,34 +42,33 @@ export default class SpacexData extends React.Component<Props, State> {
       });
   }
 
-  test() {
-    fetch('https://api.spacexdata.com/v3/capsules')
-      .then(res => res.json())
-      .then(json => {
-        json.forEach((capsule: any): void => {
-          this.setState({
-            capsuleObj: [...this.state.capsuleObj, capsule],
-          });
-        });
-      });
-
-    console.log(this.state.capsuleObj[0].capsule_id);
-  }
   _formatDate(dateString: string): string {
-    return moment(dateString).format('MMMM Do YYYY, h:mm:ss a');
+    return moment(dateString).format('MMMM Do YYYY, h:mm a');
   }
+
   render() {
     return (
       <div>
-        <h1>Main component</h1>
-        {this.state.capsuleObj.map(capsule => {
+        <p>Main component</p>
+        {this.state.capsuleObj.map((capsule, index) => {
+          const missionList = capsule.missions.map((missionItem, missionKey) => {
+            return (
+              <ul className="list-group" key={missionKey}>
+                <li className="list-group-item">
+                  Name: {missionItem.name} Flight: {missionItem.flight}
+                </li>
+              </ul>
+            );
+          });
+
           return (
             <Capsules
+              key={index}
               capsuleSerial={capsule.capsule_serial}
               capsuleId={capsule.capsule_id}
               status={capsule.status}
               originalLaunchDate={this._formatDate(capsule.original_launch)}
-              mission={capsule.mission}
+              missions={missionList}
               landings={capsule.landings}
               capsuleType={capsule.type}
               reuseCount={capsule.reuse_count}

@@ -1,14 +1,14 @@
-import * as React from "react";
+import * as React from 'react';
 
 // Styles
-import "../styles/capsules.css";
+import '../styles/capsules.css';
 
 type Props = {
   capsuleSerial: string;
   capsuleId: string;
   status: string;
   originalLaunchDate: string;
-  mission: string;
+  missions: string;
   landings: number;
   capsuleType: string;
   reuseCount: number;
@@ -17,7 +17,7 @@ type Props = {
 export default class Capsules extends React.Component<Props> {
   render() {
     return (
-      <div className="container">
+      <div className="container capsule-li-padding">
         <div className="card">
           <div className="card-body">
             <h5 className="card-title">Capsule: {this.props.capsuleSerial}</h5>
@@ -29,19 +29,14 @@ export default class Capsules extends React.Component<Props> {
             </li>
             <li className="list-group-item">Id: {this.props.capsuleId}</li>
             <li className="list-group-item">Status: {this.props.status}</li>
+            <li className="list-group-item">Original Launch Date: {this.props.originalLaunchDate}</li>
             <li className="list-group-item">
-              Original Launch Date: {this.props.originalLaunchDate}
+              Mission:
+              {this.props.missions}
             </li>
-            <li className="list-group-item">Mission: {this.props.mission}</li>
-            <li className="list-group-item">
-              No. of Landings: {this.props.landings}
-            </li>
-            <li className="list-group-item">
-              Capsule Type: {this.props.capsuleType}
-            </li>
-            <li className="list-group-item">
-              Reuse Count: {this.props.reuseCount}
-            </li>
+            <li className="list-group-item">No. of Landings: {this.props.landings}</li>
+            <li className="list-group-item">Capsule Type: {this.props.capsuleType}</li>
+            <li className="list-group-item">Reuse Count: {this.props.reuseCount}</li>
           </ul>
           <div className="card-body">
             <a href="#" className="card-link">

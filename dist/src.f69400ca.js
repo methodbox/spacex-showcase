@@ -30609,188 +30609,7 @@ if ("development" === 'production') {
 } else {
   module.exports = require('./cjs/react-dom.development.js');
 }
-},{"./cjs/react-dom.development.js":"../node_modules/react-dom/cjs/react-dom.development.js"}],"../node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
-var bundleURL = null;
-
-function getBundleURLCached() {
-  if (!bundleURL) {
-    bundleURL = getBundleURL();
-  }
-
-  return bundleURL;
-}
-
-function getBundleURL() {
-  // Attempt to find the URL of the current script and use that as the base URL
-  try {
-    throw new Error();
-  } catch (err) {
-    var matches = ('' + err.stack).match(/(https?|file|ftp|chrome-extension|moz-extension):\/\/[^)\n]+/g);
-
-    if (matches) {
-      return getBaseURL(matches[0]);
-    }
-  }
-
-  return '/';
-}
-
-function getBaseURL(url) {
-  return ('' + url).replace(/^((?:https?|file|ftp|chrome-extension|moz-extension):\/\/.+)\/[^/]+$/, '$1') + '/';
-}
-
-exports.getBundleURL = getBundleURLCached;
-exports.getBaseURL = getBaseURL;
-},{}],"../node_modules/parcel-bundler/src/builtins/css-loader.js":[function(require,module,exports) {
-var bundle = require('./bundle-url');
-
-function updateLink(link) {
-  var newLink = link.cloneNode();
-
-  newLink.onload = function () {
-    link.remove();
-  };
-
-  newLink.href = link.href.split('?')[0] + '?' + Date.now();
-  link.parentNode.insertBefore(newLink, link.nextSibling);
-}
-
-var cssTimeout = null;
-
-function reloadCSS() {
-  if (cssTimeout) {
-    return;
-  }
-
-  cssTimeout = setTimeout(function () {
-    var links = document.querySelectorAll('link[rel="stylesheet"]');
-
-    for (var i = 0; i < links.length; i++) {
-      if (bundle.getBaseURL(links[i].href) === bundle.getBundleURL()) {
-        updateLink(links[i]);
-      }
-    }
-
-    cssTimeout = null;
-  }, 50);
-}
-
-module.exports = reloadCSS;
-},{"./bundle-url":"../node_modules/parcel-bundler/src/builtins/bundle-url.js"}],"../node_modules/bootstrap/dist/css/bootstrap.css":[function(require,module,exports) {
-var reloadCSS = require('_css_loader');
-
-module.hot.dispose(reloadCSS);
-module.hot.accept(reloadCSS);
-},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"styles/styles.css":[function(require,module,exports) {
-var reloadCSS = require('_css_loader');
-
-module.hot.dispose(reloadCSS);
-module.hot.accept(reloadCSS);
-},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"styles/capsules.css":[function(require,module,exports) {
-var reloadCSS = require('_css_loader');
-
-module.hot.dispose(reloadCSS);
-module.hot.accept(reloadCSS);
-},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"components/capsules.tsx":[function(require,module,exports) {
-"use strict";
-
-var __extends = this && this.__extends || function () {
-  var _extendStatics = function extendStatics(d, b) {
-    _extendStatics = Object.setPrototypeOf || {
-      __proto__: []
-    } instanceof Array && function (d, b) {
-      d.__proto__ = b;
-    } || function (d, b) {
-      for (var p in b) {
-        if (b.hasOwnProperty(p)) d[p] = b[p];
-      }
-    };
-
-    return _extendStatics(d, b);
-  };
-
-  return function (d, b) {
-    _extendStatics(d, b);
-
-    function __() {
-      this.constructor = d;
-    }
-
-    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-  };
-}();
-
-var __importStar = this && this.__importStar || function (mod) {
-  if (mod && mod.__esModule) return mod;
-  var result = {};
-  if (mod != null) for (var k in mod) {
-    if (Object.hasOwnProperty.call(mod, k)) result[k] = mod[k];
-  }
-  result["default"] = mod;
-  return result;
-};
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var React = __importStar(require("react")); // Styles
-
-
-require("../styles/capsules.css");
-
-var Capsules =
-/** @class */
-function (_super) {
-  __extends(Capsules, _super);
-
-  function Capsules() {
-    return _super !== null && _super.apply(this, arguments) || this;
-  }
-
-  Capsules.prototype.render = function () {
-    return React.createElement("div", {
-      className: "container"
-    }, React.createElement("div", {
-      className: "card"
-    }, React.createElement("div", {
-      className: "card-body"
-    }, React.createElement("h5", {
-      className: "card-title"
-    }, "Capsule: ", this.props.capsuleSerial)), React.createElement("ul", {
-      className: "list-group list-group-flush"
-    }, React.createElement("li", {
-      className: "list-group-item"
-    }, "Serial Number:", this.props.capsuleSerial), React.createElement("li", {
-      className: "list-group-item"
-    }, "Id: ", this.props.capsuleId), React.createElement("li", {
-      className: "list-group-item"
-    }, "Status: ", this.props.status), React.createElement("li", {
-      className: "list-group-item"
-    }, "Original Launch Date: ", this.props.originalLaunchDate), React.createElement("li", {
-      className: "list-group-item"
-    }, "Mission: ", this.props.mission), React.createElement("li", {
-      className: "list-group-item"
-    }, "No. of Landings: ", this.props.landings), React.createElement("li", {
-      className: "list-group-item"
-    }, "Capsule Type: ", this.props.capsuleType), React.createElement("li", {
-      className: "list-group-item"
-    }, "Reuse Count: ", this.props.reuseCount)), React.createElement("div", {
-      className: "card-body"
-    }, React.createElement("a", {
-      href: "#",
-      className: "card-link"
-    }, "Card link"), React.createElement("a", {
-      href: "#",
-      className: "card-link"
-    }, "Another link"))));
-  };
-
-  return Capsules;
-}(React.Component);
-
-exports.default = Capsules;
-},{"react":"../node_modules/react/index.js","../styles/capsules.css":"styles/capsules.css"}],"../node_modules/moment/moment.js":[function(require,module,exports) {
+},{"./cjs/react-dom.development.js":"../node_modules/react-dom/cjs/react-dom.development.js"}],"../node_modules/moment/moment.js":[function(require,module,exports) {
 var define;
 var global = arguments[3];
 //! moment.js
@@ -35396,7 +35215,188 @@ var global = arguments[3];
 
 })));
 
-},{}],"components/spacexData.tsx":[function(require,module,exports) {
+},{}],"../node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
+var bundleURL = null;
+
+function getBundleURLCached() {
+  if (!bundleURL) {
+    bundleURL = getBundleURL();
+  }
+
+  return bundleURL;
+}
+
+function getBundleURL() {
+  // Attempt to find the URL of the current script and use that as the base URL
+  try {
+    throw new Error();
+  } catch (err) {
+    var matches = ('' + err.stack).match(/(https?|file|ftp|chrome-extension|moz-extension):\/\/[^)\n]+/g);
+
+    if (matches) {
+      return getBaseURL(matches[0]);
+    }
+  }
+
+  return '/';
+}
+
+function getBaseURL(url) {
+  return ('' + url).replace(/^((?:https?|file|ftp|chrome-extension|moz-extension):\/\/.+)\/[^/]+$/, '$1') + '/';
+}
+
+exports.getBundleURL = getBundleURLCached;
+exports.getBaseURL = getBaseURL;
+},{}],"../node_modules/parcel-bundler/src/builtins/css-loader.js":[function(require,module,exports) {
+var bundle = require('./bundle-url');
+
+function updateLink(link) {
+  var newLink = link.cloneNode();
+
+  newLink.onload = function () {
+    link.remove();
+  };
+
+  newLink.href = link.href.split('?')[0] + '?' + Date.now();
+  link.parentNode.insertBefore(newLink, link.nextSibling);
+}
+
+var cssTimeout = null;
+
+function reloadCSS() {
+  if (cssTimeout) {
+    return;
+  }
+
+  cssTimeout = setTimeout(function () {
+    var links = document.querySelectorAll('link[rel="stylesheet"]');
+
+    for (var i = 0; i < links.length; i++) {
+      if (bundle.getBaseURL(links[i].href) === bundle.getBundleURL()) {
+        updateLink(links[i]);
+      }
+    }
+
+    cssTimeout = null;
+  }, 50);
+}
+
+module.exports = reloadCSS;
+},{"./bundle-url":"../node_modules/parcel-bundler/src/builtins/bundle-url.js"}],"../node_modules/bootstrap/dist/css/bootstrap.css":[function(require,module,exports) {
+var reloadCSS = require('_css_loader');
+
+module.hot.dispose(reloadCSS);
+module.hot.accept(reloadCSS);
+},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"styles/styles.css":[function(require,module,exports) {
+var reloadCSS = require('_css_loader');
+
+module.hot.dispose(reloadCSS);
+module.hot.accept(reloadCSS);
+},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"styles/capsules.css":[function(require,module,exports) {
+var reloadCSS = require('_css_loader');
+
+module.hot.dispose(reloadCSS);
+module.hot.accept(reloadCSS);
+},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"components/capsules.tsx":[function(require,module,exports) {
+"use strict";
+
+var __extends = this && this.__extends || function () {
+  var _extendStatics = function extendStatics(d, b) {
+    _extendStatics = Object.setPrototypeOf || {
+      __proto__: []
+    } instanceof Array && function (d, b) {
+      d.__proto__ = b;
+    } || function (d, b) {
+      for (var p in b) {
+        if (b.hasOwnProperty(p)) d[p] = b[p];
+      }
+    };
+
+    return _extendStatics(d, b);
+  };
+
+  return function (d, b) {
+    _extendStatics(d, b);
+
+    function __() {
+      this.constructor = d;
+    }
+
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+  };
+}();
+
+var __importStar = this && this.__importStar || function (mod) {
+  if (mod && mod.__esModule) return mod;
+  var result = {};
+  if (mod != null) for (var k in mod) {
+    if (Object.hasOwnProperty.call(mod, k)) result[k] = mod[k];
+  }
+  result["default"] = mod;
+  return result;
+};
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var React = __importStar(require("react")); // Styles
+
+
+require("../styles/capsules.css");
+
+var Capsules =
+/** @class */
+function (_super) {
+  __extends(Capsules, _super);
+
+  function Capsules() {
+    return _super !== null && _super.apply(this, arguments) || this;
+  }
+
+  Capsules.prototype.render = function () {
+    return React.createElement("div", {
+      className: "container capsule-li-padding"
+    }, React.createElement("div", {
+      className: "card"
+    }, React.createElement("div", {
+      className: "card-body"
+    }, React.createElement("h5", {
+      className: "card-title"
+    }, "Capsule: ", this.props.capsuleSerial)), React.createElement("ul", {
+      className: "list-group list-group-flush"
+    }, React.createElement("li", {
+      className: "list-group-item"
+    }, "Serial Number:", this.props.capsuleSerial), React.createElement("li", {
+      className: "list-group-item"
+    }, "Id: ", this.props.capsuleId), React.createElement("li", {
+      className: "list-group-item"
+    }, "Status: ", this.props.status), React.createElement("li", {
+      className: "list-group-item"
+    }, "Original Launch Date: ", this.props.originalLaunchDate), React.createElement("li", {
+      className: "list-group-item"
+    }, "Mission:", this.props.missions), React.createElement("li", {
+      className: "list-group-item"
+    }, "No. of Landings: ", this.props.landings), React.createElement("li", {
+      className: "list-group-item"
+    }, "Capsule Type: ", this.props.capsuleType), React.createElement("li", {
+      className: "list-group-item"
+    }, "Reuse Count: ", this.props.reuseCount)), React.createElement("div", {
+      className: "card-body"
+    }, React.createElement("a", {
+      href: "#",
+      className: "card-link"
+    }, "Card link"), React.createElement("a", {
+      href: "#",
+      className: "card-link"
+    }, "Another link"))));
+  };
+
+  return Capsules;
+}(React.Component);
+
+exports.default = Capsules;
+},{"react":"../node_modules/react/index.js","../styles/capsules.css":"styles/capsules.css"}],"components/spacexData.tsx":[function(require,module,exports) {
 "use strict";
 
 var __extends = this && this.__extends || function () {
@@ -35459,7 +35459,9 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var React = __importStar(require("react")); // Styles
+var React = __importStar(require("react"));
+
+var moment_1 = __importDefault(require("moment")); // Styles
 
 
 require("bootstrap/dist/css/bootstrap.css");
@@ -35468,8 +35470,6 @@ require("../styles/styles.css"); // Components
 
 
 var capsules_1 = __importDefault(require("./capsules"));
-
-var moment = require("moment");
 
 var SpacexData =
 /** @class */
@@ -35499,35 +35499,29 @@ function (_super) {
     });
   };
 
-  SpacexData.prototype.test = function () {
-    var _this = this;
-
-    fetch('https://api.spacexdata.com/v3/capsules').then(function (res) {
-      return res.json();
-    }).then(function (json) {
-      json.forEach(function (capsule) {
-        _this.setState({
-          capsuleObj: __spreadArrays(_this.state.capsuleObj, [capsule])
-        });
-      });
-    });
-    console.log(this.state.capsuleObj[0].capsule_id);
-  };
-
   SpacexData.prototype._formatDate = function (dateString) {
-    return moment(dateString).format('MMMM Do YYYY, h:mm:ss a');
+    return moment_1.default(dateString).format('MMMM Do YYYY, h:mm a');
   };
 
   SpacexData.prototype.render = function () {
     var _this = this;
 
-    return React.createElement("div", null, React.createElement("h1", null, "Main component"), this.state.capsuleObj.map(function (capsule) {
+    return React.createElement("div", null, React.createElement("p", null, "Main component"), this.state.capsuleObj.map(function (capsule, index) {
+      var missionList = capsule.missions.map(function (missionItem, missionKey) {
+        return React.createElement("ul", {
+          className: "list-group",
+          key: missionKey
+        }, React.createElement("li", {
+          className: "list-group-item"
+        }, "Name: ", missionItem.name, " Flight: ", missionItem.flight));
+      });
       return React.createElement(capsules_1.default, {
+        key: index,
         capsuleSerial: capsule.capsule_serial,
         capsuleId: capsule.capsule_id,
         status: capsule.status,
         originalLaunchDate: _this._formatDate(capsule.original_launch),
-        mission: capsule.mission,
+        missions: missionList,
         landings: capsule.landings,
         capsuleType: capsule.type,
         reuseCount: capsule.reuse_count
@@ -35539,7 +35533,7 @@ function (_super) {
 }(React.Component);
 
 exports.default = SpacexData;
-},{"react":"../node_modules/react/index.js","bootstrap/dist/css/bootstrap.css":"../node_modules/bootstrap/dist/css/bootstrap.css","../styles/styles.css":"styles/styles.css","./capsules":"components/capsules.tsx","moment":"../node_modules/moment/moment.js"}],"index.tsx":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","moment":"../node_modules/moment/moment.js","bootstrap/dist/css/bootstrap.css":"../node_modules/bootstrap/dist/css/bootstrap.css","../styles/styles.css":"styles/styles.css","./capsules":"components/capsules.tsx"}],"index.tsx":[function(require,module,exports) {
 "use strict";
 
 var __extends = this && this.__extends || function () {
@@ -35641,7 +35635,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64144" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58847" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
