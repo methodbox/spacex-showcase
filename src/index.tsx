@@ -1,8 +1,8 @@
-import * as React from "react";
-import * as ReactDOM from "react-dom";
+import * as React from 'react';
+import * as ReactDOM from 'react-dom';
 
 // Components
-import SpacexData from "./components/spacexData";
+import SpacexData from './components/spacexData';
 
 type Props = {};
 type State = {};
@@ -17,5 +17,5 @@ class App extends React.Component<Props, State> {
   }
 }
 
-const mountNode = document.getElementById("app");
+const mountNode = document.getElementById('app');
 ReactDOM.render(<App />, mountNode);

@@ -35605,7 +35605,7 @@ function (_super) {
   return App;
 }(React.Component);
 
-var mountNode = document.getElementById("app");
+var mountNode = document.getElementById('app');
 ReactDOM.render(React.createElement(App, null), mountNode);
 },{"react":"../node_modules/react/index.js","react-dom":"../node_modules/react-dom/index.js","./components/spacexData":"components/spacexData.tsx"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
@@ -35635,7 +35635,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58847" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52253" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
@@ -35666,8 +35666,9 @@ if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
         assetsToAccept.forEach(function (v) {
           hmrAcceptRun(v[0], v[1]);
         });
-      } else {
-        window.location.reload();
+      } else if (location.reload) {
+        // `location` global exists in a web worker context but lacks `.reload()` function.
+        location.reload();
       }
     }
 
