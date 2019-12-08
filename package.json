@@ -1,5 +1,5 @@
 {
-  "name": "spacex",
+  "name": "spacex-showcase",
   "version": "1.0.0",
   "description": "A SpaceX Data App",
   "main": "index.js",
@@ -9,20 +9,20 @@
     "build-prod": "parcel build src/index.html"
   },
   "dependencies": {
-    "bootstrap": "^4.3.1",
-    "moment": "^2.24.0",
-    "react": "^16.9.0",
-    "react-dom": "^16.9.0"
+    "bootstrap": "^4.4.1",
+    "date-fns": "^2.8.1",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.5.5",
-    "@babel/preset-env": "^7.5.5",
-    "@babel/preset-react": "^7.0.0",
-    "@types/react": "^16.9.2",
-    "@types/react-dom": "^16.9.0",
+    "@babel/core": "^7.7.5",
+    "@babel/preset-env": "^7.7.6",
+    "@babel/preset-react": "^7.7.4",
+    "@types/react": "^16.9.15",
+    "@types/react-dom": "^16.9.4",
     "parcel-bundler": "^1.12.4",
-    "prettier": "^1.18.2",
-    "typescript": "^3.6.2"
+    "prettier": "^1.19.1",
+    "typescript": "^3.7.3"
   },
   "author": "Chris A. Shaffer (methodbox)",
   "license": "ISC"

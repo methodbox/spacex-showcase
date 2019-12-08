@@ -30,14 +30,14 @@ export default class Capsules extends React.Component<Props> {
             <li className="list-group-item">Id: {this.props.capsuleId}</li>
             <li className="list-group-item">Status: {this.props.status}</li>
             <li className="list-group-item">Original Launch Date: {this.props.originalLaunchDate}</li>
-            <li className="list-group-item">
-              Mission:
-              {this.props.missions}
-            </li>
             <li className="list-group-item">No. of Landings: {this.props.landings}</li>
             <li className="list-group-item">Capsule Type: {this.props.capsuleType}</li>
             <li className="list-group-item">Reuse Count: {this.props.reuseCount}</li>
           </ul>
+          <div className="card-body">
+            Missions:
+            <ul className="list-group-flush">{this.props.missions}</ul>
+          </div>
           <div className="card-body">
             <a href="#" className="card-link">
               Card link

@@ -1,12 +1,12 @@
 import * as React from 'react';
-import moment from 'moment';
-
+import { format } from 'date-fns';
 // Styles
 import 'bootstrap/dist/css/bootstrap.css';
 import '../styles/styles.css';
 
 // Components
-import Capsules from './capsules';
+import Capsules from './Capsules';
+import CapsuleMissions from './CapsuleMissions';
 
 // Custom Types
 type Capsule = {
@@ -43,7 +43,7 @@ export default class SpacexData extends React.Component<Props, State> {
   }
 
   _formatDate(dateString: string): string {
-    return moment(dateString).format('MMMM Do YYYY, h:mm a');
+    return format(new Date(dateString), 'MMMM Do yyyy, h:mm a');
   }
 
   render() {
@@ -51,13 +51,13 @@ export default class SpacexData extends React.Component<Props, State> {
       <div>
         <p>Main component</p>
         {this.state.capsuleObj.map((capsule, index) => {
-          const missionList = capsule.missions.map((missionItem, missionKey) => {
+          const missionList = capsule.missions.map((missionItem: any, missionKey: number) => {
             return (
-              <ul className="list-group" key={missionKey}>
-                <li className="list-group-item">
-                  Name: {missionItem.name} Flight: {missionItem.flight}
-                </li>
-              </ul>
+              <CapsuleMissions
+                missionKey={missionKey}
+                missionName={missionItem.name}
+                flightCount={missionItem.flight}
+              />
             );
           });
 
