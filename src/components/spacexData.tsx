@@ -47,13 +47,7 @@ export default class SpacexData extends React.Component<Props, State> {
         <p>Main component</p>
         {this.state.capsuleObj.map((capsule, index) => {
           const missionList = capsule.missions.map((missionItem: any, missionKey: number) => {
-            return (
-              <CapsuleMissions
-                missionKey={missionKey}
-                missionName={missionItem.name}
-                flightCount={missionItem.flight}
-              />
-            );
+            return <CapsuleMissions key={missionKey} missionName={missionItem.name} flightCount={missionItem.flight} />;
           });
 
           return (

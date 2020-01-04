@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 // Components
-import SpacexData from './components/spacexData';
+import SpacexData from './components/SpacexData';
 // Styles
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles/capsules.css';

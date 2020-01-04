@@ -1,5 +1,7 @@
 const webpack = require('webpack');
 const path = require('path');
+// code splitting
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 // analysis tool
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
@@ -9,6 +11,7 @@ const config = {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
   },
+  plugins: [new BundleAnalyzerPlugin(), new MiniCssExtractPlugin()],
   module: {
     rules: [
       {
@@ -18,7 +21,7 @@ const config = {
       },
       {
         test: /\.css$/,
-        use: ['style-loader', 'css-loader'],
+        use: [MiniCssExtractPlugin.loader, 'css-loader'],
       },
       {
         test: /\.ts(x)?$/,
@@ -36,13 +39,13 @@ const config = {
             loader: 'url-loader',
             options: {
               mimetype: 'image/png',
+              esModule: false,
             },
           },
         ],
       },
     ],
   },
-  plugins: [new BundleAnalyzerPlugin()],
   resolve: {
     extensions: ['.js', '.jsx', '.tsx', '.ts'],
     alias: {
