@@ -1,5 +1,4 @@
-import * as React from 'react';
-import '../styles/capsules.css';
+import React from 'react';
 
 type Props = {
   missionName: string;

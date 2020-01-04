@@ -1,8 +1,10 @@
-import * as React from 'react';
-import * as ReactDOM from 'react-dom';
-
+import React from 'react';
+import ReactDOM from 'react-dom';
 // Components
 import SpacexData from './components/spacexData';
+// Styles
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './styles/capsules.css';
 
 type Props = {};
 type State = {};

@@ -5,24 +5,37 @@
   "main": "index.js",
   "scripts": {
     "clean": "rm dist/bundle.js",
-    "start": "parcel src/index.html --open",
-    "build-prod": "parcel build src/index.html"
+    "build-dev": "webpack -d --mode development",
+    "build": "rm -rf ./dist/bundle.js && webpack -p --mode production",
+    "start": "webpack-dev-server --hot --mode development --open",
+    "start-prod": "webpack-dev-server --hot --mode production --open"
   },
   "dependencies": {
     "bootstrap": "^4.4.1",
     "date-fns": "^2.8.1",
     "react": "^16.12.0",
-    "react-dom": "^16.12.0"
+    "react-dom": "^16.12.0",
+    "react-hot-loader": "^4.12.18"
   },
   "devDependencies": {
-    "@babel/core": "^7.7.5",
-    "@babel/preset-env": "^7.7.6",
+    "@babel/core": "^7.7.7",
+    "@babel/preset-env": "^7.7.7",
     "@babel/preset-react": "^7.7.4",
-    "@types/react": "^16.9.15",
+    "@hot-loader/react-dom": "^16.11.0+4.12.16",
+    "@types/react": "^16.9.17",
     "@types/react-dom": "^16.9.4",
-    "parcel-bundler": "^1.12.4",
+    "awesome-typescript-loader": "^5.2.1",
+    "babel-loader": "^8.0.6",
+    "css-loader": "^3.4.0",
+    "file-loader": "^5.0.2",
     "prettier": "^1.19.1",
-    "typescript": "^3.7.3"
+    "style-loader": "^1.1.2",
+    "typescript": "^3.7.4",
+    "url-loader": "^3.0.0",
+    "webpack": "^4.41.5",
+    "webpack-bundle-analyzer": "^3.6.0",
+    "webpack-cli": "^3.3.10",
+    "webpack-dev-server": "^3.10.1"
   },
   "author": "Chris A. Shaffer (methodbox)",
   "license": "ISC"

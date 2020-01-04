@@ -1,7 +1,4 @@
-import * as React from 'react';
-
-// Styles
-import '../styles/capsules.css';
+import React from 'react';
 
 type Props = {
   capsuleSerial: string;

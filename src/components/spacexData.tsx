@@ -1,13 +1,8 @@
-import * as React from 'react';
+import React from 'react';
 import { format } from 'date-fns';
-// Styles
-import 'bootstrap/dist/css/bootstrap.css';
-import '../styles/styles.css';
-
 // Components
 import Capsules from './Capsules';
 import CapsuleMissions from './CapsuleMissions';
-
 // Custom Types
 type Capsule = {
   capsule_serial: string;
