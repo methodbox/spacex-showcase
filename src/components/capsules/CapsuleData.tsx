@@ -3,6 +3,7 @@ import { format } from 'date-fns';
 // Components
 import Capsules from './Capsules';
 import CapsuleMissions from './CapsuleMissions';
+import '../../styles/capsules.css';
 // Custom Types
 type Capsule = {
   capsule_serial: string;

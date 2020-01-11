@@ -3,7 +3,7 @@ const path = require('path');
 // code splitting
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 // analysis tool
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+//const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 const config = {
   entry: ['react-hot-loader/patch', './src/index.tsx'],
@@ -11,7 +11,7 @@ const config = {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
   },
-  plugins: [new BundleAnalyzerPlugin(), new MiniCssExtractPlugin()],
+  plugins: [/*new BundleAnalyzerPlugin(),*/ new MiniCssExtractPlugin()],
   module: {
     rules: [
       {

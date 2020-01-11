@@ -1,20 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 // Components
-import SpacexData from './components/SpacexData';
+import Home from './components/Home';
 // Styles
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './styles/capsules.css';
-
+import './styles/styles.css';
 type Props = {};
 type State = {};
 
 class App extends React.Component<Props, State> {
   render() {
     return (
-      <div>
-        <SpacexData />
-      </div>
+      <>
+        <Home />
+      </>
     );
   }
 }
