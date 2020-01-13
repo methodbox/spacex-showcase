@@ -1,7 +1,9 @@
 /** navigation menu */
 .nav-menu {
-  width: 30rem;
+  width: 80rem;
 }
 button.nav-menu-btn {
-  margin: 20px;
+  margin: 0.25rem;
+  width: 8rem;
+  color: red;
 }

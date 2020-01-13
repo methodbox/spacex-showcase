@@ -1,9 +1,9 @@
 import React from 'react';
 //  Components
 import Navigation from './Nav';
-import RocketData from './rockets/RocketData';
-import CapsuleData from './capsules/CapsuleData';
+import PageData from './PageData';
 
+const backgroundImg = require('../assets/2014_-_9crs4_streak.jpg');
 type Props = {};
 type State = {
   pageDataSource: string;
@@ -14,6 +14,12 @@ export default class Home extends React.Component<Props, State> {
     pageDataSource: '',
   };
 
+  componentDidMount() {
+    document.body.style.backgroundImage = `url(${backgroundImg})`;
+    document.body.style.backgroundAttachment = 'fixed';
+    document.body.style.backgroundSize = 'cover';
+  }
+
   _handleChangePage(pageName: string) {
     this.setState({ pageDataSource: pageName });
   }
@@ -22,13 +28,17 @@ export default class Home extends React.Component<Props, State> {
     return (
       <>
         <Navigation
-          onClickRockets={() => this._handleChangePage('rockets')}
-          onClickCapsules={() => this._handleChangePage('capsules')}
-          onClickMissions={() => this._handleChangePage('missions')}
-          onClickLaunchPads={() => this._handleChangePage('launchPads')}
+          onClickRockets={() => this._handleChangePage('Rockets')}
+          onClickCapsules={() => this._handleChangePage('Capsules')}
+          onClickShips={() => this._handleChangePage('Ships')}
+          onClickDragons={() => this._handleChangePage('Dragons')}
+          onClickCores={() => this._handleChangePage('Cores')}
+          onClickLaunchPads={() => this._handleChangePage('LaunchPads')}
+          onClickMissions={() => this._handleChangePage('Missions')}
+          onClickLaunches={() => this._handleChangePage('Launches')}
+          onClickPayloads={() => this._handleChangePage('Payloads')}
         />
-        {this.state.pageDataSource === 'rockets' ? <RocketData /> : null}
-        {this.state.pageDataSource === 'capsules' ? <CapsuleData /> : null}
+        <PageData pageDataSource={this.state.pageDataSource} />
       </>
     );
   }
